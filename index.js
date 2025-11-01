@@ -25,8 +25,16 @@ fetch("https://api.coingecko.com/api/v3/coins/ethereum")
             <p>🎯 Current: $${data.market_data.current_price.usd}</p>
             <p>👆 High: $${data.market_data.high_24h.usd}</p>
             <p>👇 Low: $${data.market_data.low_24h.usd}</p>
-        `
+    `
 
   })
   .catch(err => console.error(err))
 
+function updateTime() {
+  const date = new Date()
+  document.getElementById('time').textContent =
+    date.toLocaleTimeString('en-us', { timeStyle: 'short' })
+}
+
+// Update the time every second (1000 milliseconds)
+setInterval(updateTime, 1000)
